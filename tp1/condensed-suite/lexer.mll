@@ -10,7 +10,7 @@
 }
 
 rule l0 = parse
-    | ['1'-'9'] as i    { l1 (digit_of_char i) lexbuf }
+    | ['0'-'9'] as i    { l1 (digit_of_char i) lexbuf }
     | _                 { failwith "Syntax error" }
 and l1 base = parse
     | ['0'-'9'] as i    { l1 (base * 10 + (digit_of_char i)) lexbuf }
